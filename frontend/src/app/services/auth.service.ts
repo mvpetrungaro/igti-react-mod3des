@@ -1,6 +1,6 @@
-import { User } from '../models/user'
+import { User } from '../models/user.model'
 
-const URL = 'http://localhost:3001/sessao'
+const URL = process.env.REACT_APP_API_URL + '/sessao'
 
 export async function getUser(): Promise<User> {
   const res = await fetch(`${URL}/usuario`, {

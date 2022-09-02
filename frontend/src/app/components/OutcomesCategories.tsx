@@ -6,8 +6,7 @@ import {
   TableHead,
   TableRow,
 } from '@material-ui/core'
-
-import { Outcome } from '../services/outcomes.service'
+import { Outcome } from '../models/outcome.model'
 import { groupBy } from '../utils/array.utils'
 import { formatCurrency } from '../utils/number.utils'
 

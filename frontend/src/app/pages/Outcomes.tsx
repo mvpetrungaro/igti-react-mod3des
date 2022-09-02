@@ -2,13 +2,14 @@ import { useContext, useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { Box, Button, Tab, Tabs } from '@material-ui/core'
 
-import { Outcome, getOutcomes } from '../services/outcomes.service'
+import { getOutcomes } from '../services/outcomes.service'
 import Filter from '../components/OutcomesFilter'
 import Report from '../components/OutcomesReport'
 import Summary from '../components/OutcomesSummary'
 import { userContext } from '../contexts/user.context'
 import { TabPanel } from '../components/TabPanel'
 import OutcomesCategories from '../components/OutcomesCategories'
+import { Outcome } from '../models/outcome.model'
 
 interface OutcomesParams {
   yearMonth: string
@@ -30,7 +31,7 @@ export function Outcomes() {
   const [selectedTab, setSelectedTab] = useState(0)
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       setOutcomes(await getOutcomes(params.yearMonth))
     })()
   }, [params])
@@ -50,9 +51,9 @@ export function Outcomes() {
         <Box>
           <h1>Outcomes</h1>
         </Box>
-        <Box display="flex" alignItems="center">
-          <span>{user.nome}</span>
-          <Button onClick={user.logout}>Sair</Button>
+        <Box display="flex" alignItems="center" >
+          <Box margin={2}>{user.nome}</Box>
+          <Button onClick={user.logout} variant="outlined">Logout</Button>
         </Box>
       </Box>
       <Box
@@ -76,7 +77,7 @@ export function Outcomes() {
           aria-label="basic tabs example"
         >
           <Tab label="Summary" {...a11yProps(0)} />
-          <Tab label="Report" {...a11yProps(1)} />
+          <Tab label="Expenses" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={selectedTab} index={0}>

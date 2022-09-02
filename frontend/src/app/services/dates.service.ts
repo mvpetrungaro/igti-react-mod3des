@@ -1,14 +1,4 @@
-export interface Year {
-  id: number
-  code: string
-  name: string
-}
-
-export interface Month {
-  id: number
-  code: string
-  name: string
-}
+import { Month, Year } from "../models/dates.model"
 
 export function getYears(): Year[] {
   return [

@@ -8,7 +8,7 @@ interface SummaryProps {
 export default function OutcomesSummary({ values }: SummaryProps) {
   return (
     <Box>
-      <Box component="span">Despesa total: </Box>
+      <Box component="span">Total: </Box>
       <Box component="span" fontWeight="bold">
         {formatCurrency(values.reduce((a, c) => a + c, 0))}
       </Box>

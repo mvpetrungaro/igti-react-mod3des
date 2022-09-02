@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom'
 import { userContext } from './contexts/user.context'
-import { User } from './models/user'
+import { User } from './models/user.model'
 import { Login } from './pages/Login'
 
 import { Outcomes } from './pages/Outcomes'
@@ -17,7 +17,7 @@ export default function App() {
   const [user, setUser] = useState<User | null>(null)
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       try {
         const user = await getUser()
         setUser(user)

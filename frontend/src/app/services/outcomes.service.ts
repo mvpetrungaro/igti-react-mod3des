@@ -1,13 +1,6 @@
-const URL = 'http://localhost:3001/despesas'
+import { Outcome } from "../models/outcome.model"
 
-export interface Outcome {
-  id: number
-  description: string
-  category: string
-  value: number
-  month: string
-  day: number
-}
+const URL = process.env.REACT_APP_API_URL + '/despesas'
 
 interface OutcomeAPI {
   id: number

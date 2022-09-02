@@ -6,8 +6,7 @@ import {
   TableHead,
   TableRow,
 } from '@material-ui/core'
-
-import { Outcome } from '../services/outcomes.service'
+import { Outcome } from '../models/outcome.model'
 import { formatCurrency } from '../utils/number.utils'
 
 interface ReportProps {
@@ -23,7 +22,7 @@ export default function OutcomesReport(props: ReportProps) {
             <TableCell>Description</TableCell>
             <TableCell align="right">Category</TableCell>
             <TableCell align="right">Day</TableCell>
-            <TableCell align="right">Value</TableCell>
+            <TableCell align="right">Expense</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
