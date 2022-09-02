@@ -27,9 +27,13 @@ export default function App() {
     })()
   }, [])
 
-  function onSignOut() {
-    logout()
-    setUser(null)
+  async function onSignOut() {
+    try {
+      await logout()
+      setUser(null)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (

@@ -17,8 +17,8 @@ interface OutcomesParams {
 
 function a11yProps(index: number) {
   return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    id: `tab-${index}`,
+    'aria-controls': `tabpanel-${index}`,
   }
 }
 
@@ -31,7 +31,7 @@ export function Outcomes() {
   const [selectedTab, setSelectedTab] = useState(0)
 
   useEffect(() => {
-    ; (async () => {
+    ;(async () => {
       setOutcomes(await getOutcomes(params.yearMonth))
     })()
   }, [params])
@@ -51,9 +51,11 @@ export function Outcomes() {
         <Box>
           <h1>Outcomes</h1>
         </Box>
-        <Box display="flex" alignItems="center" >
+        <Box display="flex" alignItems="center">
           <Box margin={2}>{user.nome}</Box>
-          <Button onClick={user.logout} variant="outlined">Logout</Button>
+          <Button onClick={user.logout} variant="outlined">
+            Logout
+          </Button>
         </Box>
       </Box>
       <Box
@@ -73,8 +75,8 @@ export function Outcomes() {
         <Tabs
           centered
           value={selectedTab}
-          onChange={(e, v) => setSelectedTab(v)}
-          aria-label="basic tabs example"
+          onChange={(_e, v) => setSelectedTab(v)}
+          aria-label="outcome tabs"
         >
           <Tab label="Summary" {...a11yProps(0)} />
           <Tab label="Expenses" {...a11yProps(1)} />

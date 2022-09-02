@@ -38,8 +38,6 @@ export function Login({ onLogin }: LoginProps) {
       <Container maxWidth="sm">
         <h2 style={{ margin: '20px 5px' }}>Login</h2>
 
-        {error && <div style={{ margin: 5, color: 'red' }}>{error}</div>}
-
         <form onSubmit={signIn}>
           <TextField
             id="email"
@@ -49,6 +47,7 @@ export function Login({ onLogin }: LoginProps) {
             variant="outlined"
             fullWidth={true}
             style={{ margin: 5 }}
+            error={!!error}
           />
           <TextField
             id="password"
@@ -59,12 +58,24 @@ export function Login({ onLogin }: LoginProps) {
             fullWidth={true}
             type="password"
             style={{ margin: 5 }}
+            error={!!error}
+            helperText={error}
           />
           <Box textAlign="right" style={{ margin: 5 }}>
-            <Button onClick={handleTestCredentialsClick} variant="contained" color="primary" style={{ margin: 2 }} >
+            <Button
+              onClick={handleTestCredentialsClick}
+              variant="contained"
+              color="primary"
+              style={{ margin: 2 }}
+            >
               TEST CREDENTIALS
             </Button>
-            <Button type="submit" variant="contained" color="primary" style={{ margin: 2 }} >
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              style={{ margin: 2 }}
+            >
               LOGIN
             </Button>
           </Box>
