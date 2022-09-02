@@ -17,7 +17,7 @@ export default function App() {
   const [user, setUser] = useState<User | null>(null)
 
   useEffect(() => {
-    ; (async () => {
+    ;(async () => {
       try {
         const user = await getUser()
         setUser(user)
@@ -35,15 +35,14 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        {user && (
+        {user ? (
           <userContext.Provider value={{ ...user, logout: onSignOut }}>
             <Route path="/outcomes/:yearMonth">
               <Outcomes />
             </Route>
             <Redirect to={{ pathname: `/outcomes/${getCurrentYearMonth()}` }} />
           </userContext.Provider>
-        )}
-        {!user && (
+        ) : (
           <>
             <Route path="/login">
               <Login onLogin={setUser} />
